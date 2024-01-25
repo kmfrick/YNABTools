@@ -93,6 +93,7 @@ def create_ynab_csv(ynab_transactions: List[YNABTransaction], output_csv_path: s
 
     with open(output_csv_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
+        writer.writerow(["Date", "Payee", "Memo", "Amount"])
         for transaction in ynab_transactions:
             writer.writerow([transaction.date, transaction.payee, transaction.memo, transaction.amount])
 
